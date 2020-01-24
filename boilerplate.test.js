@@ -1,4 +1,4 @@
-describe('Google', () => {
+describe('DibsOnDinner', () => {
   beforeAll(async () => {
     await page.goto('http://localhost:4444/');
   });
