@@ -1,2 +1,2 @@
-# reservations_input
+# reservations-service
 Reservations input component made with React
