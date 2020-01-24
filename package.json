@@ -1,0 +1,22 @@
+{
+  "name": "reservations-input",
+  "version": "1.0.0",
+  "description": "React Component for Setting Up Dinner Reservations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrr43-fec6-rey/reservations-input.git"
+  },
+  "keywords": [
+    "dining"
+  ],
+  "author": "Ryan Powell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrr43-fec6-rey/reservations-input/issues"
+  },
+  "homepage": "https://github.com/hrr43-fec6-rey/reservations-input#readme"
+}
