@@ -4,7 +4,11 @@
   "description": "React Component for Setting Up Dinner Reservations",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "verbose": true,
+    "preset": "jest-puppeteer"
   },
   "repository": {
     "type": "git",
@@ -18,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/hrr43-fec6-rey/reservations-input/issues"
   },
-  "homepage": "https://github.com/hrr43-fec6-rey/reservations-input#readme"
+  "homepage": "https://github.com/hrr43-fec6-rey/reservations-input#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^2.0.0"
+  }
 }
