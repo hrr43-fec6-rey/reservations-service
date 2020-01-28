@@ -4,6 +4,6 @@ module.exports = {
     headless: process.env.HEADLESS !== 'false',
   },
   server: {
-    command: 'node index.js'
+    command: 'node index.js',
   },
-}
+};
