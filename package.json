@@ -2,9 +2,10 @@
   "name": "reservations-input",
   "version": "1.0.0",
   "description": "React Component for Setting Up Dinner Reservations",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "nodemon": "nodemon --watch ./server/index.js localhost 4444"
   },
   "jest": {
     "verbose": true,
@@ -29,6 +30,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "jest-puppeteer": "^4.4.0",
+    "nodemon": "^2.0.2",
     "puppeteer": "^2.0.0"
   }
 }
