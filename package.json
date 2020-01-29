@@ -2,9 +2,11 @@
   "name": "reservations-input",
   "version": "1.0.0",
   "description": "React Component for Setting Up Dinner Reservations",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "nodemon": "nodemon --watch ./server/index.js localhost 4444",
+    "watch": "webpack --watch --config webpack.config.js"
   },
   "jest": {
     "verbose": true,
@@ -24,11 +26,31 @@
   },
   "homepage": "https://github.com/hrr43-fec6-rey/reservations-input#readme",
   "devDependencies": {
-    "jest": "^25.1.0"
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-react": "^6.24.1",
+    "install": "^0.13.0",
+    "jest": "^25.1.0",
+    "npm": "^6.13.6",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "jest-puppeteer": "^4.4.0",
-    "puppeteer": "^2.0.0"
+    "mongoose": "^5.8.10",
+    "nodemon": "^2.0.2",
+    "puppeteer": "^2.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }
