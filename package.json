@@ -9,8 +9,7 @@
     "watch": "webpack --watch --config webpack.config.js"
   },
   "jest": {
-    "verbose": true,
-    "preset": "jest-puppeteer"
+    "verbose": true
   },
   "repository": {
     "type": "git",
@@ -51,6 +50,7 @@
     "nodemon": "^2.0.2",
     "puppeteer": "^2.0.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "supertest": "^4.0.2"
   }
 }
