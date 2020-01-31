@@ -2,6 +2,7 @@ const express = require('express');
 const RestaurantReservation = require('../database/index.js');
 
 const app = express();
+app.use(express.static('./client/dist'));
 
 app.get('/', (req, res) => res.status(200).send('ROOT'));
 

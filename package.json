@@ -10,7 +10,6 @@
   },
   "jest": {
     "verbose": true,
-    "preset": "jest-puppeteer",
     "preset": "@shelf/jest-mongodb"
   },
   "repository": {
