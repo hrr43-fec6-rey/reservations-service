@@ -8,8 +8,5 @@ const restaurantReservationSchema = new mongoose.Schema({
   reservations: [{ type: Date, unique: true }],
 });
 
-function getReservations() { console.log('GETING RESERVATIONS'); }
-restaurantReservationSchema.statics.getReservations = getReservations;
-
 
 module.exports = restaurantReservationSchema;

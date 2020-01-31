@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const restaurantReservationSchema = require('./schema.js');
 
-restaurantReservationSchema.methods.getReservations = function () { console.log('GETING RESERVATIONS'); };
 
 mongoose.connect(
   'mongodb://localhost/restaurantReservation',

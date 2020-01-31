@@ -2,6 +2,10 @@ const request = require('supertest');
 const app = require('../app');
 const RestaurantReservation = require('../../database/index.js');
 
+
+afterAll(async () => {
+  await RestaurantReservation.connection.close();
+});
 describe('test /', () => {
   test('It should respond to GET method', async () => {
     const response = await request(app).get('/');
