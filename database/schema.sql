@@ -5,8 +5,8 @@ CREATE DATABASE reservation;
 USE reservation;
 
 CREATE TABLE reservation (
-  id int NOT NULL AUTO_INCREMENT,
-  restaurantId int NOT NULL,
-  dateTime date,
+  id INT NOT NULL AUTO_INCREMENT,
+  restaurantId INT NOT NULL,
+  dateTime DATETIME,
   PRIMARY KEY (ID)
 );
