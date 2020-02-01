@@ -1,8 +1,8 @@
 const ReactDOM = require('react-dom');
 const React = require('react');
 
-console.log("I done loaded!");
+console.log('I done loaded!');
 ReactDOM.render(
-  <h1>Hello, React!</h1>,
-  document.getElementById('app')
+  <h1>BOOM BABY!!!</h1>,
+  document.getElementById('app'),
 );

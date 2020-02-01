@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconsole.log(\"I done loaded!\");\nReactDOM.render(React.createElement(\"h1\", null, \"Hello, React!\"), document.getElementById('app'));\n\n//# sourceURL=webpack:///./client/src/index.jsx?");
+eval("var ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconsole.log('I done loaded!');\nReactDOM.render(React.createElement(\"h1\", null, \"BOOM BABY!!!\"), document.getElementById('app'));\n\n//# sourceURL=webpack:///./client/src/index.jsx?");
 
 /***/ }),
 
