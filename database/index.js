@@ -15,4 +15,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const RestaurantReservation = mongoose.model('Reservation', restaurantReservationSchema);
 
-module.exports = RestaurantReservation;
+const getReservations = (restaurantId, dateTime) => console.log(restaurantId, dateTime);
+
+module.exports.getReservations = getReservations;
