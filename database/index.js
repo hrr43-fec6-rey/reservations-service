@@ -15,4 +15,18 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const RestaurantReservation = mongoose.model('Reservation', restaurantReservationSchema);
 
-module.exports = RestaurantReservation;
+const getReservations = async (restaurantId, dateTime) => {
+  const minusHourFifteen = new Date(dateTime);
+  minusHourFifteen.setHours(minusHourFifteen.getHours() - 1);
+  minusHourFifteen.setMinutes(minusHourFifteen.getMinutes() - 15);
+
+  const plusHourFifteen = new Date(dateTime);
+  plusHourFifteen.setHours(plusHourFifteen.getHours() + 1);
+  plusHourFifteen.setMinutes(plusHourFifteen.getMinutes() + 15);
+
+  console.log(minusHourFifteen);
+  console.log(plusHourFifteen);
+  // RestaurantReservation.find({ restaurantId }, (err, docs) => console.log(docs));
+};
+
+module.exports.getReservations = getReservations;
