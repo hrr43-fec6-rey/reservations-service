@@ -2,10 +2,8 @@ const request = require('supertest');
 const app = require('../app');
 const RestaurantReservation = require('../../database/index.js');
 
+afterAll(() => RestaurantReservation.connection.end());
 
-afterAll(async () => {
-  await RestaurantReservation.connection.close();
-});
 describe('test /', () => {
   test('It should respond to GET method', async () => {
     const response = await request(app).get('/');
@@ -15,7 +13,7 @@ describe('test /', () => {
 
 describe('test GET /api/reservations', () => {
   test('It should respond to GET method', async () => {
-    const response = await request(app).get('/api/reservations/mcdonalds/dateTime/now');
+    const response = await request(app).get('/api/reservations/1/dateTime/now');
     expect(response.statusCode).toBe(200);
   });
   test('It should call getReservations', async () => {

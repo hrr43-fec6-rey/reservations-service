@@ -4,7 +4,7 @@
   "description": "React Component for Setting Up Dinner Reservations",
   "main": "./server/index.js",
   "scripts": {
-    "test": "jest --coverage --watchAll",
+    "test": "jest --coverage",
     "nodemon": "nodemon --watch ./server/index.js localhost 4444",
     "watch": "webpack --watch --config webpack.config.js"
   },

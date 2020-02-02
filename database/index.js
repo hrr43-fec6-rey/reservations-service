@@ -29,3 +29,4 @@ const getReservations = async (restaurantId, dateTime, callback) => {
 };
 
 module.exports.getReservations = getReservations;
+module.exports.connection = connection;
