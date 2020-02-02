@@ -1,21 +1,10 @@
-const mongoose = require('mongoose');
-const restaurantReservationSchema = require('./schema.js');
+const mysql = require('mysql');
+const credentials = require('./credentials');
 
+const connection = mysql.createConnection(credentials);
+connection.connect();
 
-mongoose.connect(
-  'mongodb://localhost/restaurantReservation',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-);
-
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-
-const RestaurantReservation = mongoose.model('Reservation', restaurantReservationSchema);
-
-const getReservations = async (restaurantId, dateTime) => {
+const getReservations = async (restaurantId, dateTime, callback) => {
   const minusHourFifteen = new Date(dateTime);
   minusHourFifteen.setHours(minusHourFifteen.getHours() - 1);
   minusHourFifteen.setMinutes(minusHourFifteen.getMinutes() - 15);
@@ -24,9 +13,19 @@ const getReservations = async (restaurantId, dateTime) => {
   plusHourFifteen.setHours(plusHourFifteen.getHours() + 1);
   plusHourFifteen.setMinutes(plusHourFifteen.getMinutes() + 15);
 
-  console.log(minusHourFifteen);
-  console.log(plusHourFifteen);
-  // RestaurantReservation.find({ restaurantId }, (err, docs) => console.log(docs));
+  const select = 'SELECT * FROM reservation WHERE restaurantId = ? AND dateTime BETWEEN ? and ?;';
+  connection.query(
+    select,
+    [restaurantId, minusHourFifteen, plusHourFifteen],
+    (error, results) => {
+      if (error) {
+        callback(error);
+      } else {
+        callback(null, results.map((record) => record.dateTime));
+        // console.log(results.map((record) => record.dateTime));
+      }
+    },
+  );
 };
 
 module.exports.getReservations = getReservations;
