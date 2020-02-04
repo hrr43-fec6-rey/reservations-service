@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 const Reservation = ({ restaurantId }) => {
   const [slots, setSlots] = useState([]);
   const [showSlots, setShowSlots] = useState(false);
+  const [dateTime] = useState(new Date());
 
   function formatAMPM(date) {
     let hours = date.getHours();
@@ -17,15 +18,29 @@ const Reservation = ({ restaurantId }) => {
     return strTime;
   }
 
-  // '/api/reservations/:restaurantId/dateTime/:dateTime'
   function findTable() {
-    fetch(`/api/reservations/${restaurantId}/dateTime/${encodeURIComponent(Date())}`)
+    fetch(`/api/reservations/${restaurantId}/dateTime/${encodeURIComponent(dateTime)}`)
       .then((response) => response.json())
       .then((myJson) => {
-        setSlots(myJson.map((slot) => formatAMPM(new Date(slot))));
+        setSlots(myJson.map((date) => formatAMPM(new Date(date))));
         setShowSlots(true);
       });
   }
+
+  function setTime(e) {
+    dateTime.setHours(...JSON.parse(e.target.value));
+    console.log(dateTime);
+  }
+
+  function setDate(e) {
+    const newDate = new Date(e.target.value);
+    newDate.setMinutes(newDate.getTimezoneOffset());
+    dateTime.setFullYear(newDate.getFullYear());
+    dateTime.setMonth(newDate.getMonth());
+    dateTime.setDate(newDate.getDate());
+    console.log(dateTime);
+  }
+
 
   return (
     <div className="reservation-main">
@@ -40,18 +55,18 @@ const Reservation = ({ restaurantId }) => {
           ))}
         </select>
         <div className="input-title">Date</div>
-        <input className="datepicker" type="date" />
+        <input className="datepicker" type="date" onChange={setDate} />
         <div className="input-title">Time</div>
         <div className="reservation-time">
-          <select name="time" id="time">
+          <select name="time" id="time" onChange={setTime}>
             { [...Array(25).keys()].slice(0, 24) // Make 48 time slots (30 min intervals)
               .map((time) => time % 12)
               .map((time) => (time === 0 ? 12 : time))
               .map((time, index) => [
-                <option value={[index < 13 ? time : time + 12, 0]}>
+                <option value={JSON.stringify([index, 0])}>
                   {`${time}:00 ${index < 12 ? 'AM' : 'PM'}`}
                 </option>,
-                <option value={[index < 13 ? time : time + 12, 30]}>
+                <option value={JSON.stringify([index, 30])}>
                   {`${time}:30 ${index < 12 ? 'AM' : 'PM'}`}
                 </option>,
               ])}
