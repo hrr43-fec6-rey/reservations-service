@@ -1,8 +1,10 @@
+import Reservation from './Reservation.jsx';
+
 const ReactDOM = require('react-dom');
 const React = require('react');
 
-console.log('I done loaded!');
+console.log(window.location.pathname[1]);
 ReactDOM.render(
-  <h1>BOOM BABY!!!</h1>,
+  <Reservation restaurantId={window.location.pathname[1]} />,
   document.getElementById('app'),
 );

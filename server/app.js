@@ -1,4 +1,4 @@
-// const path = require('path');
+const path = require('path');
 const express = require('express');
 const database = require('../database/index.js');
 
@@ -7,7 +7,7 @@ app.use(express.static('./client/dist'));
 
 
 app.get('/:restaurantId', (req, res) => {
-  res.redirect('/');
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 app.get('/api/reservations/:restaurantId/dateTime/:dateTime', (req, res) => {
