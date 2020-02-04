@@ -14,7 +14,7 @@ const generateReservations = () => {
       dateTime.setHours(0, 0, 0, 0);
       for (let k = 0; k < 96; k += 1) {
         dateTime.setMinutes(dateTime.getMinutes() + 15);
-        if (Math.random() > 0.9) {
+        if (Math.random() > 0.5) {
           reservations.push([null, i, new Date(dateTime)]);
         }
       }

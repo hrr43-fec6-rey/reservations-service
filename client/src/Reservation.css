@@ -3,14 +3,30 @@
   border: 1px solid lightgray;
 }
 
-.reservation-title {
-  text-align: center;
+.time-slots {
+  background-color: lightyellow;
 }
 
-.reservation-partysize{
-  display: block;
-  margin: 0 auto;
-  width: 250px;
-  background-color: #fff;
-  border-style: hidden hidden hidden solid;
+.time-slot {
+  background-color:#da3743;
+  color: white;
+  width: 100px;
+  /* border: 1px solid black; */
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+  display: inline-block;
+  vertical-align: top;
+  min-width:72px;
+  height: 32px;
+  border-radius:2px;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+.reservation-find-table {
+  width: 300px;
+  height: 32px;
+  text-align: center;
+  background-color: #da3743;
+  color: white;
 }
