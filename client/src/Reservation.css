@@ -2,3 +2,15 @@
   width: 350px;
   border: 1px solid lightgray;
 }
+
+.reservation-title {
+  text-align: center;
+}
+
+.reservation-partysize{
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  background-color: #fff;
+  border-style: hidden hidden hidden solid;
+}

@@ -8,7 +8,16 @@ function Reservation({ restaurantId }) {
   const [id] = useState(restaurantId);
   return (
     <div className="reservation-main">
-      {id}
+      <div className="reservation-title">Make a reservation</div>
+      <select className="reservation-partysize">
+        {// Make array of 1 - 20
+          [...Array(21).keys()].slice(1).map((key) => (
+            <option value={key}>
+              {`For ${key}`}
+            </option>
+          ))
+        }
+      </select>
     </div>
   );
 }
