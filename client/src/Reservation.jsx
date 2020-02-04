@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import './Reservation.css';
 
 // const React = require('react');
 
 function Reservation({ restaurantId }) {
   const [id] = useState(restaurantId);
   return (
-    <h1>
+    <div className="reservation-main">
       {id}
-    </h1>
+    </div>
   );
 }
 
