@@ -22,7 +22,6 @@ const getReservations = async (restaurantId, dateTime, callback) => {
         callback(error);
       } else {
         callback(null, results.map((record) => record.dateTime));
-        // console.log(results.map((record) => record.dateTime));
       }
     },
   );
