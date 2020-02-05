@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static('./client/dist'));
 
 
-app.get('/:restaurantId', (req, res) => {
+app.get('/?id=:restaurantId', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
