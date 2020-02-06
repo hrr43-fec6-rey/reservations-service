@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --coverage",
     "nodemon": "nodemon --watch server --watch database",
-    "watch": "webpack --watch --config webpack.config.js"
+    "watch": "webpack --watch --config webpack.config.js",
+    "seed": "node ./database/seed.js"
   },
   "jest": {
     "verbose": true,

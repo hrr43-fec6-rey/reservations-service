@@ -5,7 +5,12 @@ import React, { useState } from 'react';
 const Reservation = ({ restaurantId }) => {
   const [slots, setSlots] = useState([]);
   const [showSlots, setShowSlots] = useState(false);
+  const [taken, setTaken] = useState(0);
   const [dateTime] = useState(new Date());
+
+  fetch(`http://localhost:4444/api/reservations/${restaurantId}/dateTime/${encodeURIComponent(dateTime)}`)
+    .then((response) => response.json())
+    .then((myJson) => setTaken(myJson.length));
 
   function formatAMPM(date) {
     let hours = date.getHours();
@@ -22,14 +27,26 @@ const Reservation = ({ restaurantId }) => {
     fetch(`http://localhost:4444/api/reservations/${restaurantId}/dateTime/${encodeURIComponent(dateTime)}`)
       .then((response) => response.json())
       .then((myJson) => {
-        setSlots(myJson.map((date) => formatAMPM(new Date(date))));
+        const minusHourFifteen = new Date(dateTime);
+        minusHourFifteen.setHours(minusHourFifteen.getHours() - 1);
+        minusHourFifteen.setMinutes(minusHourFifteen.getMinutes() - 15);
+
+        const plusHourFifteen = new Date(dateTime);
+        plusHourFifteen.setHours(plusHourFifteen.getHours() + 1);
+        plusHourFifteen.setMinutes(plusHourFifteen.getMinutes() + 15);
+
+        setSlots(myJson
+          .map((date) => new Date(date))
+          .filter((date) => date.getTime() >= minusHourFifteen.getTime()
+              && date.getTime() <= plusHourFifteen.getTime())
+          .map((date) => formatAMPM(new Date(date))));
         setShowSlots(true);
       });
   }
 
+
   function setTime(e) {
     dateTime.setHours(...JSON.parse(e.target.value));
-    console.log(dateTime);
   }
 
   function setDate(e) {
@@ -38,7 +55,6 @@ const Reservation = ({ restaurantId }) => {
     dateTime.setFullYear(newDate.getFullYear());
     dateTime.setMonth(newDate.getMonth());
     dateTime.setDate(newDate.getDate());
-    console.log(dateTime);
   }
 
 
@@ -97,7 +113,7 @@ const Reservation = ({ restaurantId }) => {
             ) : (null)}
           </div>
         )}
-      <div className="reservation-booked">Booked 9 times today</div>
+      <div className="reservation-booked">{`Booked ${taken} times today`}</div>
     </div>
 
   );
