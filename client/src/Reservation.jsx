@@ -5,7 +5,12 @@ import React, { useState } from 'react';
 const Reservation = ({ restaurantId }) => {
   const [slots, setSlots] = useState([]);
   const [showSlots, setShowSlots] = useState(false);
+  const [taken, setTaken] = useState(0);
   const [dateTime] = useState(new Date());
+
+  fetch(`http://localhost:4444/api/reservations/${restaurantId}/dateTime/${encodeURIComponent(dateTime)}`)
+    .then((response) => response.json())
+    .then((myJson) => setTaken(myJson.length));
 
   function formatAMPM(date) {
     let hours = date.getHours();
@@ -39,7 +44,6 @@ const Reservation = ({ restaurantId }) => {
       });
   }
 
-  // function setReserved() {}
 
   function setTime(e) {
     dateTime.setHours(...JSON.parse(e.target.value));
@@ -109,7 +113,7 @@ const Reservation = ({ restaurantId }) => {
             ) : (null)}
           </div>
         )}
-      <div className="reservation-booked">Booked 9 times today</div>
+      <div className="reservation-booked">{`Booked ${taken} times today`}</div>
     </div>
 
   );
