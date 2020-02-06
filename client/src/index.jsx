@@ -3,8 +3,12 @@ import Reservation from './Reservation.jsx';
 const ReactDOM = require('react-dom');
 const React = require('react');
 
-console.log(window.location.pathname[1]);
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get('id');
+
+console.log(id);
 ReactDOM.render(
-  <Reservation restaurantId={window.location.pathname[1]} />,
+  <Reservation restaurantId={id} />,
   document.getElementById('reservations'),
 );

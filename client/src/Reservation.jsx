@@ -19,6 +19,7 @@ const Reservation = ({ restaurantId }) => {
   }
 
   function findTable() {
+    console.log(restaurantId);
     fetch(`http://localhost:4444/api/reservations/${restaurantId}/dateTime/${encodeURIComponent(dateTime)}`)
       .then((response) => response.json())
       .then((myJson) => {
@@ -26,6 +27,8 @@ const Reservation = ({ restaurantId }) => {
         setShowSlots(true);
       });
   }
+
+  // function setReserved() {}
 
   function setTime(e) {
     dateTime.setHours(...JSON.parse(e.target.value));
