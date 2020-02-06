@@ -1,9 +1,11 @@
+const cors = require('cors');
 const path = require('path');
 const express = require('express');
 const database = require('../database/index.js');
 
 const app = express();
 app.use(express.static('./client/dist'));
+app.use(cors());
 
 
 app.get('/?id=:restaurantId', (req, res) => {

@@ -19,7 +19,7 @@ const Reservation = ({ restaurantId }) => {
   }
 
   function findTable() {
-    fetch(`/api/reservations/${restaurantId}/dateTime/${encodeURIComponent(dateTime)}`)
+    fetch(`http://localhost:4444/api/reservations/${restaurantId}/dateTime/${encodeURIComponent(dateTime)}`)
       .then((response) => response.json())
       .then((myJson) => {
         setSlots(myJson.map((date) => formatAMPM(new Date(date))));
