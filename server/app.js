@@ -18,8 +18,6 @@ app.get('/api/reservations/:restaurantId/dateTime/:dateTime', (req, res) => {
     req.params.dateTime,
     (err, result) => {
       res.json(result);
-      res.status(200);
-      res.send();
     },
   );
 });
