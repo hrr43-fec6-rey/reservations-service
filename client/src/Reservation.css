@@ -21,6 +21,7 @@
   border-radius:2px;
   text-align: center;
   line-height: 1.5em;
+  cursor: pointer;
 }
 
 .reservation-find-table {
@@ -29,4 +30,13 @@
   text-align: center;
   background-color: #da3743;
   color: white;
+  cursor: pointer;
+}
+
+.date-picker {
+  cursor: pointer;
+}
+
+.reservation-time {
+  cursor: pointer;
 }
