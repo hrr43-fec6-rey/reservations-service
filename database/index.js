@@ -5,13 +5,6 @@ const connection = mysql.createConnection(credentials);
 connection.connect();
 
 const getReservations = async (restaurantId, dateTime, callback) => {
-  // const minusHourFifteen = new Date(dateTime);
-  // minusHourFifteen.setHours(minusHourFifteen.getHours() - 1);
-  // minusHourFifteen.setMinutes(minusHourFifteen.getMinutes() - 15);
-
-  // const plusHourFifteen = new Date(dateTime);
-  // plusHourFifteen.setHours(plusHourFifteen.getHours() + 1);
-  // plusHourFifteen.setMinutes(plusHourFifteen.getMinutes() + 15);
   const dayStart = new Date(dateTime);
   dayStart.setHours(0, 0, 0, 0);
 
@@ -25,7 +18,6 @@ const getReservations = async (restaurantId, dateTime, callback) => {
     (error, results) => {
       if (error) {
         console.error(error);
-        console.log(restaurantId);
         callback(error);
       } else {
         callback(null, results.map((record) => record.dateTime));

@@ -19,11 +19,22 @@ const Reservation = ({ restaurantId }) => {
   }
 
   function findTable() {
-    console.log(restaurantId);
     fetch(`http://localhost:4444/api/reservations/${restaurantId}/dateTime/${encodeURIComponent(dateTime)}`)
       .then((response) => response.json())
       .then((myJson) => {
-        setSlots(myJson.map((date) => formatAMPM(new Date(date))));
+        const minusHourFifteen = new Date(dateTime);
+        minusHourFifteen.setHours(minusHourFifteen.getHours() - 1);
+        minusHourFifteen.setMinutes(minusHourFifteen.getMinutes() - 15);
+
+        const plusHourFifteen = new Date(dateTime);
+        plusHourFifteen.setHours(plusHourFifteen.getHours() + 1);
+        plusHourFifteen.setMinutes(plusHourFifteen.getMinutes() + 15);
+
+        setSlots(myJson
+          .map((date) => new Date(date))
+          .filter((date) => date.getTime() >= minusHourFifteen.getTime()
+              && date.getTime() <= plusHourFifteen.getTime())
+          .map((date) => formatAMPM(new Date(date))));
         setShowSlots(true);
       });
   }
@@ -32,7 +43,6 @@ const Reservation = ({ restaurantId }) => {
 
   function setTime(e) {
     dateTime.setHours(...JSON.parse(e.target.value));
-    console.log(dateTime);
   }
 
   function setDate(e) {
@@ -41,7 +51,6 @@ const Reservation = ({ restaurantId }) => {
     dateTime.setFullYear(newDate.getFullYear());
     dateTime.setMonth(newDate.getMonth());
     dateTime.setDate(newDate.getDate());
-    console.log(dateTime);
   }
 
 
