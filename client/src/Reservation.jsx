@@ -71,10 +71,20 @@ const Reservation = ({ restaurantId }) => {
           ))}
         </select>
         <div className="input-title">Date</div>
-        <input className="datepicker" type="date" onChange={setDate} />
+        <input
+          className="date-picker"
+          type="date"
+          onChange={setDate}
+          onClick={() => { setShowSlots(false); }}
+        />
         <div className="input-title">Time</div>
         <div className="reservation-time">
-          <select name="time" id="time" onChange={setTime}>
+          <select
+            name="time"
+            id="time"
+            onChange={setTime}
+            onClick={() => { setShowSlots(false); }}
+          >
             { [...Array(25).keys()].slice(0, 24) // Make 48 time slots (30 min intervals)
               .map((time) => time % 12)
               .map((time) => (time === 0 ? 12 : time))
