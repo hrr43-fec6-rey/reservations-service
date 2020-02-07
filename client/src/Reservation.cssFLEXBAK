@@ -1,0 +1,48 @@
+@font-face {
+  font-family: BrandonText;
+  src: url("fonts/BrandonText-Regular.otf") format("opentype");
+}
+
+.reservation-main {
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: BrandonText;
+  box-shadow: 2px 2px 2px 2px #F0F0F0;
+  max-width: 992px;
+  border-bottom: 1px solid #d8d9db;
+  justify-content: center;
+}
+.time {
+  cursor: pointer;
+  font-family: inherit;
+  background-color: #fff;
+  font-size: .875rem;
+  display: block;
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 35px;
+}
+
+/* EE9FA5 Faded button */
+.time-slots {
+}
+
+.time-slot {
+}
+
+.reservation-title {
+}
+
+.input-title{
+}
+
+
+.reservation-find-table {
+}
+
+.date-picker {
+}
+
+.reservation-time {
+}
