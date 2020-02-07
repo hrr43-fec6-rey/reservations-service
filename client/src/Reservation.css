@@ -8,7 +8,11 @@
   width: 350px;
   box-shadow: 2px 2px 2px 2px #F0F0F0;
 }
-/* EE9FA5 Faded button */
+
+#reservation-title {
+  text-align: center;
+}
+
 .time-slots {
   background-color: lightyellow;
 }
@@ -30,32 +34,60 @@
   cursor: pointer;
 }
 
-.reservation-title {
+.input-title {
   font-size: 21px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 24px;
-  justify-content: center;
+}
+
+.dropdown {
+  background-color: #fff;
+
+  font-family: BrandonText;
 }
 
 .input-title{
   font-size: .875rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 
-.reservation-find-table {
+.reservation-find-table-button {
+  border-radius:2px;
   width: 300px;
   height: 32px;
   text-align: center;
   background-color: #da3743;
   color: white;
   cursor: pointer;
+
+  /* color: white;
+  padding: .75rem 1rem;
+  text-decoration: none;
+  background-color: #da3743;
+  color: #fff;
+  border: none;
+  height: 32px;
+  text-align: center;
+  cursor: pointer; */
 }
 
 .date-picker {
   cursor: pointer;
+  font-family: BrandonText;
 }
 
 .reservation-time {
   cursor: pointer;
 }
+
+.reservation-booked {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.reservation-find-table-button:hover, .time-slot:hover {
+  background-color: #EE9FA5 ;
+}
+/* EE9FA5 Faded button */

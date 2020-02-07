@@ -63,7 +63,7 @@ const Reservation = ({ restaurantId }) => {
       <div className="reservation-title">Make a reservation</div>
       <div className="reservation-input-container">
         <div className="input-title">Party Size</div>
-        <select name="partySize" id="partySize">
+        <select name="party-size" id="party-size" className="dropdown">
           { [...Array(21).keys()].slice(1).map((key) => (
             <option value={key}>
               {`For ${key}`}
@@ -81,7 +81,7 @@ const Reservation = ({ restaurantId }) => {
         <div className="reservation-time">
           <select
             name="time"
-            id="time"
+            className="dropdown"
             onChange={setTime}
             onClick={() => { setShowSlots(false); }}
           >
@@ -109,7 +109,7 @@ const Reservation = ({ restaurantId }) => {
               onKeyDown={findTable}
             >
               <span>
-                Find a Table
+                  Find a Table
               </span>
             </button>
           </div>
