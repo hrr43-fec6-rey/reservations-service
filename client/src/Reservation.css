@@ -1,8 +1,14 @@
-.reservation-main {
-  width: 350px;
-  border: 1px solid lightgray;
+@font-face {
+  font-family: BrandonText;
+  src: url("fonts/BrandonText-Regular.otf") format("opentype");
 }
 
+.reservation-main {
+  font-family: BrandonText;
+  width: 350px;
+  box-shadow: 2px 2px 2px 2px #F0F0F0;
+}
+/* EE9FA5 Faded button */
 .time-slots {
   background-color: lightyellow;
 }
@@ -23,6 +29,19 @@
   line-height: 1.5em;
   cursor: pointer;
 }
+
+.reservation-title {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 24px;
+  justify-content: center;
+}
+
+.input-title{
+  font-size: .875rem;
+  font-weight: 500;
+}
+
 
 .reservation-find-table {
   width: 300px;

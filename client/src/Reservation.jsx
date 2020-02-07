@@ -104,11 +104,13 @@ const Reservation = ({ restaurantId }) => {
           <div>
             <button
               type="button"
-              className="reservation-find-table"
+              className="reservation-find-table-button"
               onClick={findTable}
               onKeyDown={findTable}
             >
-              Find a Table
+              <span>
+                Find a Table
+              </span>
             </button>
           </div>
         )
@@ -125,7 +127,6 @@ const Reservation = ({ restaurantId }) => {
         )}
       <div className="reservation-booked">{`Booked ${taken} times today`}</div>
     </div>
-
   );
 };
 
