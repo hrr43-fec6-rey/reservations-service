@@ -70,7 +70,14 @@ const Reservation = ({ restaurantId }) => {
             </option>
           ))}
         </select>
-        <div className="input-title">Date</div>
+        <div className="reservation-input-container">
+          <div className="input-title">Date</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+/*
         <input
           className="date-picker"
           type="date"
@@ -126,9 +133,7 @@ const Reservation = ({ restaurantId }) => {
           </div>
         )}
       <div className="reservation-booked">{`Booked ${taken} times today`}</div>
-    </div>
-  );
-};
+    </div> */
 
 Reservation.propTypes = {
   restaurantId: PropTypes.string.isRequired,
