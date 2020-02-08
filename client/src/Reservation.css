@@ -4,27 +4,42 @@
 }
 .reservation-main {
   font-family: BrandonText;
-  width: 350px;
-  box-shadow: 2px 2px 2px 2px #F0F0F0;
+  width: 320px;
+  box-shadow: 0px 0px 3px 2px #F0F0F0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-
 
 .reservation-input-container {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  /*margin-right: 1rem;
+  margin-left: 1rem;*/
 }
+
+.date-time-container {
+  display:flex;
+  justify-content: space-around;
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* #time-selector{
+   width:150px;
+} */
 
 .reservation-title {
   font-size: 21px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 50px;
   text-align: center;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  /*margin-right: 1rem;
+  margin-left: 1rem;*/
   border-bottom: 1px solid #d8d9db;
+  margin-bottom: 2rem;
 }
 
 .time-slot {
@@ -36,7 +51,8 @@
   margin-bottom: .5rem;
   display: inline-block;
   vertical-align: top;
-  min-width:72px;
+  /*min-width:72px;*/
+  min-width: 72px;
   height: 32px;
   border-radius:2px;
   text-align: center;
@@ -55,11 +71,12 @@
   border-bottom: 1px solid #d8d9db;
   outline:0px;
   margin-bottom: .5rem;
+  box-sizing: border-box;
 }
-.dropdown:hover, .time-slot:hover {
+.dropdown:hover {
   border-bottom: 2px solid #da3743;
 }
-.dropdown:focus, .time-slot:hover {
+.dropdown:focus {
   border-bottom: 2px solid #da3743;
 }
 
