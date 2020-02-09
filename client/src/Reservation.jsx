@@ -70,61 +70,71 @@ const Reservation = ({ restaurantId }) => {
             </option>
           ))}
         </select>
-        <div className="input-title">Date</div>
-        <input
-          className="date-picker"
-          type="date"
-          onChange={setDate}
-          onClick={() => { setShowSlots(false); }}
-        />
-        <div className="input-title">Time</div>
-        <div className="reservation-time">
-          <select
-            name="time"
-            className="dropdown"
-            onChange={setTime}
-            onClick={() => { setShowSlots(false); }}
-          >
-            { [...Array(25).keys()].slice(0, 24) // Make 48 time slots (30 min intervals)
-              .map((time) => time % 12)
-              .map((time) => (time === 0 ? 12 : time))
-              .map((time, index) => [
-                <option value={JSON.stringify([index, 0])}>
-                  {`${time}:00 ${index < 12 ? 'AM' : 'PM'}`}
-                </option>,
-                <option value={JSON.stringify([index, 30])}>
-                  {`${time}:30 ${index < 12 ? 'AM' : 'PM'}`}
-                </option>,
-              ])}
-          </select>
+        <div className="reservation-input-container">
+          <div className="date-time-container">
+            <div className="vertial-container">
+              <div className="input-title">Date</div>
+              <input
+                className="dropdown"
+                type="date"
+                onChange={setDate}
+                onClick={() => { setShowSlots(false); }}
+              />
+            </div>
+            <div className="vertial-container" id="time-container">
+              <div className="input-title">Time</div>
+              <div className="reservation-time">
+                <select
+                  name="time"
+                  id="time-selector"
+                  className="dropdown"
+                  onChange={setTime}
+                  onClick={() => { setShowSlots(false); }}
+                >
+                  { [...Array(25).keys()].slice(0, 24) // Make 48 time slots (30 min intervals)
+                    .map((time) => time % 12)
+                    .map((time) => (time === 0 ? 12 : time))
+                    .map((time, index) => [
+                      <option value={JSON.stringify([index, 0])}>
+                        {`${time}:00 ${index < 12 ? 'AM' : 'PM'}`}
+                      </option>,
+                      <option value={JSON.stringify([index, 30])}>
+                        {`${time}:30 ${index < 12 ? 'AM' : 'PM'}`}
+                      </option>,
+                    ])}
+                </select>
+              </div>
+            </div>
+          </div>
+          {!showSlots
+            ? (
+              <div>
+                <button
+                  type="button"
+                  className="reservation-find-table-button"
+                  onClick={findTable}
+                  onKeyDown={findTable}
+                >
+                  <span>
+                  Find a Table
+                  </span>
+                </button>
+              </div>
+            )
+            : (
+              <div>
+                {slots.map((slot) => <div className="time-slot" key={slot}>{slot}</div>)}
+                {slots.length === 0 ? (
+                  <div className="time-slot-none">
+                    {'At the moment, there’s no online availability within 2.5 hours. '}
+                Have another time in mind?
+                  </div>
+                ) : (null)}
+              </div>
+            )}
+
         </div>
       </div>
-      {!showSlots
-        ? (
-          <div>
-            <button
-              type="button"
-              className="reservation-find-table-button"
-              onClick={findTable}
-              onKeyDown={findTable}
-            >
-              <span>
-                  Find a Table
-              </span>
-            </button>
-          </div>
-        )
-        : (
-          <div>
-            {slots.map((slot) => <div className="time-slot" key={slot}>{slot}</div>)}
-            {slots.length === 0 ? (
-              <div className="time-slot-none">
-                {'At the moment, there’s no online availability within 2.5 hours. '}
-                Have another time in mind?
-              </div>
-            ) : (null)}
-          </div>
-        )}
       <div className="reservation-booked">{`Booked ${taken} times today`}</div>
     </div>
   );

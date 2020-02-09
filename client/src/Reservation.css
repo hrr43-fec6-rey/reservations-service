@@ -2,19 +2,44 @@
   font-family: BrandonText;
   src: url("fonts/BrandonText-Regular.otf") format("opentype");
 }
-
 .reservation-main {
   font-family: BrandonText;
-  width: 350px;
-  box-shadow: 2px 2px 2px 2px #F0F0F0;
+  width: 320px;
+  box-shadow: 0px 0px 3px 2px #F0F0F0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-#reservation-title {
+.reservation-input-container {
+  display: flex;
+  flex-direction: column;
+  /*margin-right: 1rem;
+  margin-left: 1rem;*/
+}
+
+.date-time-container {
+  display:flex;
+  justify-content: space-around;
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* #time-selector{
+   width:150px;
+} */
+
+.reservation-title {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 50px;
   text-align: center;
-}
-
-.time-slots {
-  background-color: lightyellow;
+  /*margin-right: 1rem;
+  margin-left: 1rem;*/
+  border-bottom: 1px solid #d8d9db;
+  margin-bottom: 2rem;
 }
 
 .time-slot {
@@ -26,7 +51,8 @@
   margin-bottom: .5rem;
   display: inline-block;
   vertical-align: top;
-  min-width:72px;
+  /*min-width:72px;*/
+  min-width: 72px;
   height: 32px;
   border-radius:2px;
   text-align: center;
@@ -34,21 +60,32 @@
   cursor: pointer;
 }
 
-.input-title {
-  font-size: 21px;
-  font-weight: 500;
-  line-height: 24px;
-}
 
 .dropdown {
   background-color: #fff;
-
+  font-size: .875rem;
   font-family: BrandonText;
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-bottom: 1px solid #d8d9db;
+  outline:0px;
+  margin-bottom: .5rem;
+  box-sizing: border-box;
+}
+.dropdown:hover {
+  border-bottom: 2px solid #da3743;
+}
+.dropdown:focus {
+  border-bottom: 2px solid #da3743;
 }
 
 .input-title{
-  font-size: .875rem;
+  font-size: .800rem;
   font-weight: 700;
+  line-height: 24px;
+  margin-bottom: .5rem;
+  margin-left: .15rem;
 }
 
 
