@@ -74,6 +74,7 @@
   box-sizing: border-box;
 }
 .dropdown:hover {
+  cursor: pointer;
   border-bottom: 2px solid #da3743;
 }
 .dropdown:focus {

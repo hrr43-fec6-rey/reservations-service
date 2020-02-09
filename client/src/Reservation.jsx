@@ -116,7 +116,7 @@ const Reservation = ({ restaurantId }) => {
                   onKeyDown={findTable}
                 >
                   <span>
-                  Find a Table
+                    Find a Table
                   </span>
                 </button>
               </div>
@@ -127,7 +127,7 @@ const Reservation = ({ restaurantId }) => {
                 {slots.length === 0 ? (
                   <div className="time-slot-none">
                     {'At the moment, there’s no online availability within 2.5 hours. '}
-                Have another time in mind?
+                    Have another time in mind?
                   </div>
                 ) : (null)}
               </div>
