@@ -4,7 +4,7 @@
 }
 .reservation-main {
   font-family: BrandonText;
-  width: 320px;
+  width: 300px;
   box-shadow: 0px 0px 3px 2px #F0F0F0;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -27,6 +27,20 @@
   flex-direction: column;
 }
 
+
+.booked-box {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d8d9db;
+}
+
+.slot-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
 /* #time-selector{
    width:150px;
 } */
@@ -45,7 +59,7 @@
 .time-slot {
   background-color:#da3743;
   color: white;
-  width: 100px;
+  width: 90px;
   /* border: 1px solid black; */
   margin-right: .5rem;
   margin-bottom: .5rem;
@@ -60,6 +74,24 @@
   cursor: pointer;
 }
 
+.party-dropdown {
+  background-color: #fff;
+  font-size: .875rem;
+  font-family: BrandonText;
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-bottom: 1px solid #d8d9db;
+  outline:0px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.party-dropdown:hover {
+  cursor: pointer;
+  border-bottom: 2px solid #da3743;
+  margin-bottom: 19px;
+}
 
 .dropdown {
   background-color: #fff;
@@ -70,12 +102,13 @@
   border-right:none;
   border-bottom: 1px solid #d8d9db;
   outline:0px;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
   box-sizing: border-box;
 }
 .dropdown:hover {
   cursor: pointer;
   border-bottom: 2px solid #da3743;
+  margin-bottom: 0rem;
 }
 .dropdown:focus {
   border-bottom: 2px solid #da3743;
@@ -89,26 +122,31 @@
   margin-left: .15rem;
 }
 
+.time-slot-none {
+  display: flex;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  background-color: #F1F2F4;
+}
+
 
 .reservation-find-table-button {
   border-radius:2px;
   width: 300px;
-  height: 32px;
-  text-align: center;
+  height: 62px;
+  font-weight: 600;
   background-color: #da3743;
   color: white;
   cursor: pointer;
-
-  /* color: white;
-  padding: .75rem 1rem;
-  text-decoration: none;
-  background-color: #da3743;
-  color: #fff;
-  border: none;
-  height: 32px;
   text-align: center;
-  cursor: pointer; */
+  line-height: 60px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 4px;
 }
+
 
 .date-picker {
   cursor: pointer;
@@ -121,11 +159,29 @@
 
 .reservation-booked {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 20px;
+   padding-left: 5px;
 }
 
 .reservation-find-table-button:hover, .time-slot:hover {
   background-color: #EE9FA5 ;
+}
+
+.specials {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#see-details {
+  color: #da3743;
+}
+
+#see-details:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 /* EE9FA5 Faded button */

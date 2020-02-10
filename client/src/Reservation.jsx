@@ -63,7 +63,7 @@ const Reservation = ({ restaurantId }) => {
       <div className="reservation-title">Make a reservation</div>
       <div className="reservation-input-container">
         <div className="input-title">Party Size</div>
-        <select name="party-size" id="party-size" className="dropdown">
+        <select name="party-size" id="party-size" className="party-dropdown">
           { [...Array(21).keys()].slice(1).map((key) => (
             <option value={key}>
               {`For ${key}`}
@@ -109,8 +109,8 @@ const Reservation = ({ restaurantId }) => {
           {!showSlots
             ? (
               <div>
-                <button
-                  type="button"
+                <div
+                  /* type="button" */
                   className="reservation-find-table-button"
                   onClick={findTable}
                   onKeyDown={findTable}
@@ -118,24 +118,45 @@ const Reservation = ({ restaurantId }) => {
                   <span>
                     Find a Table
                   </span>
-                </button>
+                </div>
               </div>
             )
             : (
-              <div>
-                {slots.map((slot) => <div className="time-slot" key={slot}>{slot}</div>)}
+              <div className="slot-box">
+                {slots.map((slot) => (
+                  <div
+                    className="time-slot"
+                    onClick={() => { setShowSlots(false); }}
+                    key={slot}
+                  >
+                    {slot}
+                  </div>
+                ))}
                 {slots.length === 0 ? (
                   <div className="time-slot-none">
-                    {'At the moment, there’s no online availability within 2.5 hours. '}
-                    Have another time in mind?
+                    <div>
+                      <img className="icon" src="http://localhost:4444/ic_negative.svg" />
+                    </div>
+                    <div>
+                      {'At the moment, there’s no online availability within 2.5 hours. '}
+                      Have another time in mind?
+                    </div>
                   </div>
                 ) : (null)}
               </div>
             )}
-
         </div>
       </div>
-      <div className="reservation-booked">{`Booked ${taken} times today`}</div>
+      <div className="booked-box">
+        <img className="icon" src="http://localhost:4444/ic_social_proof.svg" />
+        <div className="reservation-booked">{`Booked ${taken} times today`}</div>
+      </div>
+      <div className="specials">
+        <div>
+          <span>Special offers available. </span>
+          <span id="see-details">See details</span>
+        </div>
+      </div>
     </div>
   );
 };
